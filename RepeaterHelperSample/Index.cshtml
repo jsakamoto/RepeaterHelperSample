@@ -18,7 +18,12 @@
     <tr><th>Title</th><th>Publisher</th></tr>
     @Html.Repeater(
         items: comics, 
-        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>)
+        template:
+            @<tr>
+                <td>@item.Title</td>
+                <td>@item.Publisher</td>
+            </tr>
+    )
 </table>
 
 <h1>With Separator</h1>
@@ -27,8 +32,12 @@
     <tr><th>Title</th><th>Publisher</th></tr>
     @Html.Repeater(
         items: comics, 
-        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>,
-        separator: @<tr><td colspan="2">--------</td></tr>
+        template: 
+            @<tr>
+                <td>@item.Title</td>
+                <td>@item.Publisher</td>
+             </tr>,
+        separator: @<tr><td colspan="2">----</td></tr>
     )
 </table>
 
@@ -38,8 +47,12 @@
     <tr><th>Title</th><th>Publisher</th></tr>
     @Html.Repeater(
         items: comics.Where(_=> false), 
-        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>,
-        separator: @<tr><td colspan="2">--------</td></tr>,
+        template: 
+            @<tr>
+                <td>@item.Title</td>
+                <td>@item.Publisher</td>
+             </tr>,
+        separator: @<tr><td colspan="2">----</td></tr>,
         empty: @<tr><td colspan="2">nothing...</td></tr>
     )
 </table>
