@@ -1,0 +1,48 @@
+﻿@using RepeaterHelperSample
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Repeater Helper</title>
+</head>
+<body>
+@{
+    var comics = new[] { 
+        new {Title = "Groo", Publisher = "Dark Horse Comics"},
+        new {Title = "Spiderman", Publisher = "Marvel"}
+    };
+}
+
+<h1>Normal</h1>
+
+<table border="1">
+    <tr><th>Title</th><th>Publisher</th></tr>
+    @Html.Repeater(
+        items: comics, 
+        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>)
+</table>
+
+<h1>With Separator</h1>
+
+<table border="1">
+    <tr><th>Title</th><th>Publisher</th></tr>
+    @Html.Repeater(
+        items: comics, 
+        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>,
+        separator: @<tr><td colspan="2">--------</td></tr>
+    )
+</table>
+
+<h1>Empty</h1>
+
+<table border="1">
+    <tr><th>Title</th><th>Publisher</th></tr>
+    @Html.Repeater(
+        items: comics.Where(_=> false), 
+        template: @<tr><td>@item.Title</td><td>@item.Publisher</td></tr>,
+        separator: @<tr><td colspan="2">--------</td></tr>,
+        empty: @<tr><td colspan="2">nothing...</td></tr>
+    )
+</table>
+
+</body>
+</html>
