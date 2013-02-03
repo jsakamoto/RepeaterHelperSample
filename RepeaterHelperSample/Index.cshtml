@@ -57,5 +57,23 @@
     )
 </table>
 
+<h1>Type2</h1>
+
+<table border="1">
+    <tr><th>Index</th><th>Odd</th><th>Title</th><th>Publisher</th></tr>
+    @Html.Repeater(
+        items: comics,
+        template: comic =>
+            @<tr>
+                <td>@item.Index</td>
+                <td>@item.Odd</td>
+                <td>@comic.Title</td>
+                <td>@comic.Publisher</td>
+             </tr>,
+        separator: @<tr><td colspan="2">----</td></tr>,
+        empty: @<tr><td colspan="2">nothing...</td></tr>
+    )
+</table>
+
 </body>
 </html>

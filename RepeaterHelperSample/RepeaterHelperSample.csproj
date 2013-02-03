@@ -84,6 +84,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="RepeaterHelper.cs" />
+    <Compile Include="RepeaterItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
